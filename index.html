@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ReWeaver Tic-Tac-Toe</title>
+<meta name="description" content="A tiny, fully re-themeable Tic-Tac-Toe used to demo ReWeaver's Design-to-Code-to-Design roundtrip." />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body data-bg-pattern="dots">
+
+  <main class="app">
+    <header class="header">
+      <h1 class="title">Tic&nbsp;·&nbsp;Tac&nbsp;·&nbsp;Toe</h1>
+      <p class="subtitle">a ReWeaver roundtrip demo</p>
+    </header>
+
+    <section class="scoreboard" aria-label="Scoreboard">
+      <div class="score score--x">
+        <span class="score-label">X</span>
+        <span class="score-value" id="score-x">0</span>
+      </div>
+      <div class="score score--draw">
+        <span class="score-label">Draws</span>
+        <span class="score-value" id="score-draw">0</span>
+      </div>
+      <div class="score score--o">
+        <span class="score-label">O</span>
+        <span class="score-value" id="score-o">0</span>
+      </div>
+    </section>
+
+    <p class="status" id="status" role="status" aria-live="polite">X's turn</p>
+
+    <div class="board" id="board" role="grid" aria-label="Tic-tac-toe board">
+      <!-- 9 cells injected by script.js -->
+    </div>
+
+    <div class="controls">
+      <button class="btn" id="reset-round">New Round</button>
+      <button class="btn btn--ghost" id="reset-score">Reset Score</button>
+    </div>
+
+    <footer class="footer">
+      <p>Fork this repo, tweak <code>design-tokens.json</code> or any file in <code>/themes</code>, and see how far you can push the design before ReWeaver flags drift. See <code>README.md</code>.</p>
+    </footer>
+  </main>
+
+  <template id="cell-template">
+    <button class="cell" type="button" role="gridcell" aria-label="Empty cell"></button>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>

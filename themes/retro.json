@@ -1,0 +1,26 @@
+{
+  "_comment": "80s-arcade theme: sharp corners, chunky strokes, no rounding. Apply with: node tools/apply-tokens.js themes/retro.json",
+
+  "color-bg-start": "#FF00A0",
+  "color-bg-end": "#FFB800",
+  "color-board": "#101010",
+  "color-grid-line": "#FF00A0",
+  "color-x": "#00FFB2",
+  "color-o": "#FFB800",
+  "color-win-highlight": "#FFFFFF",
+  "color-text": "#101010",
+  "color-text-muted": "#5A5A5A",
+
+  "board-radius": "0px",
+  "cell-radius": "0px",
+  "mark-stroke-width": "14",
+  "mark-linecap": "square",
+  "pattern-opacity": "0",
+
+  "font-family": "'Courier New', 'Lucida Console', monospace",
+
+  "duration-place": "90ms",
+  "duration-win": "500ms",
+  "duration-hover": "60ms",
+  "easing": "steps(4, end)"
+}

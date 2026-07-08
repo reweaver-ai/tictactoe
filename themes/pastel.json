@@ -1,0 +1,26 @@
+{
+  "_comment": "Soft pastel theme: fully rounded cells, gentle motion. Apply with: node tools/apply-tokens.js themes/pastel.json",
+
+  "color-bg-start": "#FFE5EC",
+  "color-bg-end": "#E5F1FF",
+  "color-board": "#FFFFFF",
+  "color-grid-line": "#FFD1DC",
+  "color-x": "#FF8FAB",
+  "color-o": "#8FC7FF",
+  "color-win-highlight": "#B9FBC0",
+  "color-text": "#5C4B51",
+  "color-text-muted": "#A48A93",
+
+  "board-radius": "32px",
+  "cell-radius": "50%",
+  "mark-stroke-width": "8",
+  "mark-linecap": "round",
+  "pattern-opacity": "0.08",
+
+  "font-family": "'Comic Sans MS', 'Segoe UI', sans-serif",
+
+  "duration-place": "260ms",
+  "duration-win": "900ms",
+  "duration-hover": "160ms",
+  "easing": "ease-in-out"
+}

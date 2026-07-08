@@ -1,0 +1,269 @@
+/* =========================================================================
+   ReWeaver Tic-Tac-Toe — styles.css
+   ---------------------------------------------------------------------
+   ALL visual customization (color, shape, background, animation) lives
+   in the :root block below. Nothing else in this file needs to change
+   for a re-theme — that's the whole point of this demo.
+
+   The block between the TOKENS markers is regenerated automatically by
+   `node tools/apply-tokens.js <theme-file>` from a design-tokens.json
+   (or any file in /themes). Edit the JSON, not this block, unless you
+   are hand-testing a value before writing it back to the token file.
+   ========================================================================= */
+
+:root {
+  /* TOKENS:START */
+  --color-bg-start: #6C5CE7;
+  --color-bg-end: #00D2D3;
+  --color-board: #FFFFFF;
+  --color-grid-line: #2D2D3A;
+  --color-x: #FF5A5F;
+  --color-o: #2D9CDB;
+  --color-win-highlight: #FFD166;
+  --color-text: #1B1B29;
+  --color-text-muted: #6B6B7B;
+  --board-radius: 24px;
+  --cell-radius: 16px;
+  --mark-stroke-width: 10;
+  --mark-linecap: round;
+  --pattern-opacity: 0.12;
+  --font-family: 'Poppins', 'Segoe UI', system-ui, sans-serif;
+  --duration-place: 180ms;
+  --duration-win: 700ms;
+  --duration-hover: 120ms;
+  --easing: cubic-bezier(0.34, 1.56, 0.64, 1);
+  /* TOKENS:END */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-family);
+  color: var(--color-text);
+  background: linear-gradient(135deg, var(--color-bg-start), var(--color-bg-end));
+  background-attachment: fixed;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Optional dot pattern layered on top of the gradient. Toggle by setting
+   data-bg-pattern="none" on <body>, or drive intensity via --pattern-opacity. */
+body[data-bg-pattern="dots"]::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(currentColor 2px, transparent 2px);
+  background-size: 28px 28px;
+  color: #ffffff;
+  opacity: var(--pattern-opacity);
+  pointer-events: none;
+}
+
+.app {
+  width: min(92vw, 420px);
+  padding: 28px 24px 20px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.header {
+  margin-bottom: 18px;
+  color: #ffffff;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(1.6rem, 6vw, 2.1rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.subtitle {
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+
+.scoreboard {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.score {
+  flex: 1;
+  max-width: 110px;
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(6px);
+  border-radius: calc(var(--cell-radius) * 0.6);
+  padding: 8px 4px;
+  color: #ffffff;
+}
+
+.score--x .score-value { color: var(--color-x); }
+.score--o .score-value { color: var(--color-o); }
+
+.score-label {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.85;
+}
+
+.score-value {
+  display: block;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.status {
+  color: #ffffff;
+  font-weight: 600;
+  margin: 0 0 14px;
+  min-height: 1.4em;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  background: var(--color-grid-line);
+  padding: 8px;
+  border-radius: var(--board-radius);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+  aspect-ratio: 1 / 1;
+}
+
+.cell {
+  background: var(--color-board);
+  border: none;
+  border-radius: var(--cell-radius);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18%;
+  transition: transform var(--duration-hover) var(--easing), filter var(--duration-hover) ease;
+}
+
+.cell:hover:not(:disabled) {
+  filter: brightness(0.96);
+}
+
+.cell:active:not(:disabled) {
+  transform: scale(0.94);
+}
+
+.cell:disabled {
+  cursor: default;
+}
+
+.cell.is-winner {
+  animation: winPulse var(--duration-win) var(--easing) infinite alternate;
+}
+
+.cell svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.cell svg path,
+.cell svg line,
+.cell svg circle {
+  fill: none;
+  stroke-width: var(--mark-stroke-width);
+  stroke-linecap: var(--mark-linecap);
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: markIn var(--duration-place) var(--easing) forwards;
+}
+
+.cell .mark-x path { stroke: var(--color-x); }
+.cell .mark-o circle { stroke: var(--color-o); }
+
+@keyframes markIn {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes winPulse {
+  from {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-win-highlight) 70%, transparent);
+    background: var(--color-board);
+  }
+  to {
+    box-shadow: 0 0 0 10px color-mix(in srgb, var(--color-win-highlight) 0%, transparent);
+    background: color-mix(in srgb, var(--color-win-highlight) 35%, var(--color-board));
+  }
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+.btn {
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 10px 18px;
+  border: none;
+  border-radius: calc(var(--cell-radius) * 0.75);
+  background: #ffffff;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: transform var(--duration-hover) var(--easing);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0) scale(0.97);
+}
+
+.btn--ghost {
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+}
+
+.footer {
+  margin-top: 20px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.footer code {
+  background: rgba(0, 0, 0, 0.18);
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cell,
+  .cell svg path,
+  .cell svg circle,
+  .cell.is-winner,
+  .btn {
+    animation: none !important;
+    transition: none !important;
+  }
+}

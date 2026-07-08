@@ -1,0 +1,26 @@
+{
+  "_comment": "Dark / neon theme. Apply with: node tools/apply-tokens.js themes/dark.json",
+
+  "color-bg-start": "#0F0C29",
+  "color-bg-end": "#302B63",
+  "color-board": "#1B1830",
+  "color-grid-line": "#0A0817",
+  "color-x": "#00F5D4",
+  "color-o": "#FF61D8",
+  "color-win-highlight": "#FEE440",
+  "color-text": "#F4F1FF",
+  "color-text-muted": "#9C97C4",
+
+  "board-radius": "20px",
+  "cell-radius": "12px",
+  "mark-stroke-width": "9",
+  "mark-linecap": "round",
+  "pattern-opacity": "0.18",
+
+  "font-family": "'Segoe UI', system-ui, sans-serif",
+
+  "duration-place": "200ms",
+  "duration-win": "800ms",
+  "duration-hover": "120ms",
+  "easing": "cubic-bezier(0.34, 1.56, 0.64, 1)"
+}

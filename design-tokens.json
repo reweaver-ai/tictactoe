@@ -1,0 +1,26 @@
+{
+  "_comment": "Source of truth for every themeable value in this app. Edit values here (or copy this file into /themes/your-name.json), then run: node tools/apply-tokens.js design-tokens.json — this writes the values into styles.css between the TOKENS markers. This file is intentionally flat: each key maps 1:1 to a CSS custom property of the same name (e.g. color-x -> --color-x).",
+
+  "color-bg-start": "#6C5CE7",
+  "color-bg-end": "#00D2D3",
+  "color-board": "#FFFFFF",
+  "color-grid-line": "#2D2D3A",
+  "color-x": "#FF5A5F",
+  "color-o": "#2D9CDB",
+  "color-win-highlight": "#FFD166",
+  "color-text": "#1B1B29",
+  "color-text-muted": "#6B6B7B",
+
+  "board-radius": "24px",
+  "cell-radius": "16px",
+  "mark-stroke-width": "10",
+  "mark-linecap": "round",
+  "pattern-opacity": "0.12",
+
+  "font-family": "'Poppins', 'Segoe UI', system-ui, sans-serif",
+
+  "duration-place": "180ms",
+  "duration-win": "700ms",
+  "duration-hover": "120ms",
+  "easing": "cubic-bezier(0.34, 1.56, 0.64, 1)"
+}
