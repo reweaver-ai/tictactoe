@@ -1,5 +1,5 @@
 {
-  "_comment": "Source of truth for every themeable value in this app. Edit values here (or copy this file into /themes/your-name.json), then run: node tools/apply-tokens.js design-tokens.json — this writes the values into styles.css between the TOKENS markers. This file is intentionally flat: each key maps 1:1 to a CSS custom property of the same name (e.g. color-x -> --color-x).",
+  "_comment": "Source of truth for every themeable value in this app. Edit values here (or copy this file into /themes/your-name.json), then run: node tools/apply-tokens.js (no arguments) — this writes these values into styles.css between the TOKENS markers, and every themes/*.json into the THEMES block below it. This file is intentionally flat: each key maps 1:1 to a CSS custom property of the same name (e.g. color-x -> --color-x).",
 
   "color-bg-start": "#6C5CE7",
   "color-bg-end": "#00D2D3",

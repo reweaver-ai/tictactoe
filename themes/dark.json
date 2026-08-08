@@ -1,5 +1,5 @@
 {
-  "_comment": "Dark / neon theme. Apply with: node tools/apply-tokens.js themes/dark.json",
+  "_comment": "Dark / neon theme. Emitted into styles.css as .dark by: node tools/apply-tokens.js (no arguments)",
 
   "color-bg-start": "#0F0C29",
   "color-bg-end": "#302B63",

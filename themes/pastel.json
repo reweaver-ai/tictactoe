@@ -1,5 +1,5 @@
 {
-  "_comment": "Soft pastel theme: fully rounded cells, gentle motion. Apply with: node tools/apply-tokens.js themes/pastel.json",
+  "_comment": "Soft pastel theme: fully rounded cells, gentle motion. Emitted into styles.css as [data-theme=pastel] by: node tools/apply-tokens.js (no arguments)",
 
   "color-bg-start": "#FFE5EC",
   "color-bg-end": "#E5F1FF",
