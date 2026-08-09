@@ -40,7 +40,7 @@
 }
 
 /* THEMES:START */
-.dark {
+.dark, [data-theme="dark"] {
   --color-bg-start: #0F0C29;
   --color-bg-end: #302B63;
   --color-board: #1B1830;

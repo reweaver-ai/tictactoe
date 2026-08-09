@@ -101,12 +101,19 @@ function renderThemes(themes) {
 }
 
 /**
- * `.dark` / `.light` for those names, `[data-theme="x"]` for everything
- * else — the selectors a design tool reads back as named modes.
+ * The selectors a design tool reads back as named modes.
+ *
+ * `dark`/`light` also get their conventional class form, because that is
+ * what stylesheets in the wild use — but the `[data-theme]` attribute is
+ * emitted for every theme without exception, so switching is one uniform
+ * gesture no matter which theme you pick.
  */
 function selectorFor(themeName) {
-  if (themeName === "dark" || themeName === "light") return `.${themeName}`;
-  return `[data-theme="${themeName}"]`;
+  const attribute = `[data-theme="${themeName}"]`;
+  if (themeName === "dark" || themeName === "light") {
+    return `.${themeName}, ${attribute}`;
+  }
+  return attribute;
 }
 
 /** Every themes/*.json, named for its file — sorted so output is stable. */
